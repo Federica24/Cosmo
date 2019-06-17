@@ -30,8 +30,12 @@ mask = (pha_data['CLASS_STAR']<0.9) & (pha_data['FLAGS']==0) & (pha_data['MAG_AU
 selection = number[mask]
 print 'Number of postage stamps to create =', len(selection)
 
-# Cut the stamps
+# Set the output directory
 output_dir = args.outputdir
+if output_dir[-1] != "/":
+    output_dir = output_dir+"/"
+
+# Cut the stamps
 for n in selection:
     
     obj = n-1
